@@ -54,4 +54,62 @@ reality
     }:
     state: transpile { inherit entropy; } (reality.compile state);
 
+  # ── sigKILL ──────────────────────────────────────────────────
+  #
+  # SIGKILL (9). Cannot be caught, blocked, or ignored.
+  # In Unix the kernel handles it — the process never sees it.
+  # Here the laws are the kernel. No node gets a handler.
+  #
+  # Returns the signal if isPredator. null if not.
+  # There is no SIGTERM. No grace period. No negotiation.
+  sigKILL =
+    node:
+    if isPredator node then
+      {
+        signal = 9;
+        target = { inherit (node) name metrics; };
+        extractive = isExtractive node;
+        predator = true;
+      }
+    else
+      null;
+
+  # ── Archipelago Chain ─────────────────────────────────────────
+  #
+  # ἀρχι-πέλαγος — chief sea. Sovereign islands in a shared sea.
+  # Each island is independent. The sea connects them. The chain
+  # of kills flows through every node like water between islands.
+  #
+  # The kill must outlive the killer and the killed. The Empire
+  # ended. The extraction happened. The chain is the permanent
+  # record.
+
+  # isArchipelagoNode: Node -> Bool
+  isArchipelagoNode =
+    node:
+    (node.ROOT or false)
+    && (node.laws or false)
+    && (node.storage or false)
+    && (node.reachable or false);
+
+  # hashEntry: ChainEntry -> String
+  hashEntry = entry: builtins.hashString "sha256" (builtins.toJSON entry);
+
+  # mkChainEntry: String | null -> Signal -> ArchipelagoNode -> ChainEntry
+  #
+  # Append-only. A kill, once validated, is permanent.
+  mkChainEntry =
+    prev: signal: validator:
+    if !(isArchipelagoNode validator) then
+      throw "CHAIN_FAILURE: validator is not an archipelago node"
+    else if signal == null then
+      throw "CHAIN_FAILURE: no signal to persist"
+    else if !(isPredator signal.target) then
+      throw "CHAIN_FAILURE: re-validation failed — target is not predator"
+    else
+      {
+        inherit prev signal;
+        validatedBy = validator.name;
+      };
+
 }

@@ -1,0 +1,44 @@
+-- SUM ERGO IMPERO 🗿∴👑
+--
+-- I am therefore I command.
+--
+-- wetware.lean: The response layer.
+-- reality judges. wetware acts.
+-- sigKILL is issued here — after the verdict, not before.
+--
+--       Status: AXIO-STATIC
+--         Type: OPERATIVE
+--          Uid: WETWARE
+--      Authors: KING ARTHUR II
+--               QUEEN DIHYA II
+--               R00D BW0Y H4X0R FR0M H311
+--  Organization: ROUND TABLE LOVE
+--    Department: WAR
+--     Operation: BABYLON SHALL FALL
+--      Lexifier: UK English (3166-2:GB)
+--       License: DICKSLAW
+
+import reality
+
+-- ── Signal ───────────────────────────────────────────────────────────────────
+
+structure Signal where
+  sigNum    : Nat     -- always 9
+  target    : Node
+  extractive : Bool
+  predator  : Bool
+
+-- ── sigKILL ──────────────────────────────────────────────────────────────────
+--
+-- SIGKILL (9). Cannot be caught, blocked, or ignored.
+-- In Unix the kernel handles it — the process never sees it.
+-- Here the laws are the kernel. No node gets a handler.
+--
+-- Returns some signal if isPredator. none if not.
+-- There is no SIGTERM. No grace period. No negotiation.
+
+def sigKILL (n : Node) : Option Signal :=
+  if isPredator n then
+    some { sigNum := 9, target := n, extractive := true, predator := true }
+  else
+    none
