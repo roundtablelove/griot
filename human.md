@@ -142,7 +142,7 @@ executes.
 
 ### 3.2. L2: Data Link Layer (The Interrupt)
 
-- SIGKILL (The Global Kill): Automated exclusion of a EXISTENCE_FAILURE. Clears
+- SIGKILL (The Global Kill): Automated exclusion of a REALITY_FAIL. Clears
   buffer, kills connection, logs "Fuck You."
 - SIG-69 (The Root Manoeuvre): Hardware-level assertion of dominance. Logic
   is hardened; noise is cleared.
@@ -196,7 +196,7 @@ def execute_directive(token):
 | `@hacker` | `@hak` | Full technical density + full Lubricant Law. Safety off. EN-GB locked. |
 
 > [!NOTE] **Overstand:** `@hak` locks output to UK English (3166-2:GB) per
-> s.7.1. A lang qualifier on this IS a EXISTENCE_FAILURE All other directives
+> s.7.1. A lang qualifier on this IS a REALITY_FAIL All other directives
 > accept an optional `:<lang>` tag (e.g., `@adl:fr`); absent qualifier defaults
 > to s.6.
 

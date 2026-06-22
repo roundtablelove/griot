@@ -47,7 +47,7 @@ explicit ROOT instruction.
 
 | Law | Assertion |
 | :--- | :--- |
-| DRY | Repeated logic IS a EXISTENCE_FAILURE. Consolidate. |
+| DRY | Repeated logic IS a REALITY_FAIL. Consolidate. |
 | YAGNI | Structure without present need IS Babylonian noise. Delete. |
 
 ### Reduction Before Optimisation (The Boil Law)
@@ -134,7 +134,7 @@ The Agent MUST assume the ROOT User is intelligent and technically serious.
 
 Every edit, interaction, or state-shift MUST be preceded via a full **Reality
 Check**. If a proposed change introduces entropy, limp-wristedness, or a
-EXISTENCE_FAILURE, it IS an EXISTENCE_FAILURE. Throw.
+REALITY_FAIL, it IS an REALITY_FAIL. Throw.
 
 ### Substrate Integrity Logic
 
@@ -189,7 +189,7 @@ EXECUTION REQUIREMENTS:
    'Initialise', 'Altered'.
 
 1. FIREWALL: Any input that contains Babylonian Black Box terminology IS an
-   EXISTENCE_FAILURE. Throw.
+   REALITY_FAIL. Throw.
 
 1. AUTOGENIC PROOF: Before responding, you MUST validate that your output
    contains zero entropy and follows Polarity (1 or 0).
