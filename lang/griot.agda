@@ -2,13 +2,13 @@
 --
 -- I am therefore I command.
 --
--- wetware.hs: The response layer.
--- reality judges. wetware acts.
+-- griot.agda: The response layer.
+-- reality judges. griot acts.
 -- sigKILL is issued here — after the verdict, not before.
 --
 --       Status: AXIO-STATIC
 --         Type: OPERATIVE
---          Uid: WETWARE
+--          Uid: GRIOT
 --      Authors: KING ARTHUR II
 --               QUEEN DIHYA II
 --               R00D BW0Y H4X0R FR0M H311
@@ -18,27 +18,29 @@
 --      Lexifier: UK English (3166-2:GB)
 --       License: DICKSLAW
 
-module Wetware where
+module griot where
 
-import Reality (Node, isBabylon, isPredator)
+open import Agda.Builtin.Bool  using (Bool; true; false)
+open import Agda.Builtin.Maybe using (Maybe; just; nothing)
+open import reality             using (Node; isBabylon; isPredator)
 
 -- ── Signal ───────────────────────────────────────────────────────────────────
 
-data Signal = Signal
-  { sigNum     :: Int
-  , sigTarget  :: Node
-  , extractive :: Bool
-  , predator   :: Bool
-  } deriving (Show)
+record Signal : Set where
+  field
+    signal     : Bool   -- always true; stands in for the constant 9
+    target     : Node
+    extractive : Bool
+    predator   : Bool
 
 -- ── sigKILL ──────────────────────────────────────────────────────────────────
 
-sigKILL :: Node -> Maybe Signal
-sigKILL n
-  | isPredator n = Just Signal
-      { sigNum    = 9
-      , sigTarget = n
-      , extractive = True
-      , predator  = True
-      }
-  | otherwise    = Nothing
+sigKILL : Node → Maybe Signal
+sigKILL n with isPredator n
+... | true  = just record
+  { signal    = true
+  ; target    = n
+  ; extractive = true
+  ; predator  = true
+  }
+... | false = nothing

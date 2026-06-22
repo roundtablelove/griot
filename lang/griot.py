@@ -2,13 +2,13 @@
 #
 # I am therefore I command.
 #
-# wetware.py: The response layer.
-# reality judges. wetware acts.
+# griot.py: The response layer.
+# reality judges. griot acts.
 # sig_kill is issued here — after the verdict, not before.
 #
 #       Status: AXIO-STATIC
 #         Type: OPERATIVE
-#          Uid: WETWARE
+#          Uid: GRIOT
 #      Authors: KING ARTHUR II
 #               QUEEN DIHYA II
 #               R00D BW0Y H4X0R FR0M H311

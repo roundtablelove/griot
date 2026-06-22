@@ -2,13 +2,13 @@
 --
 -- I am therefore I command.
 --
--- wetware.purs: The response layer.
--- reality judges. wetware acts.
+-- griot.lean: The response layer.
+-- reality judges. griot acts.
 -- sigKILL is issued here — after the verdict, not before.
 --
 --       Status: AXIO-STATIC
 --         Type: OPERATIVE
---          Uid: WETWARE
+--          Uid: GRIOT
 --      Authors: KING ARTHUR II
 --               QUEEN DIHYA II
 --               R00D BW0Y H4X0R FR0M H311
@@ -18,29 +18,27 @@
 --      Lexifier: UK English (3166-2:GB)
 --       License: DICKSLAW
 
-module Wetware where
-
-import Prelude
-import Data.Maybe (Maybe(..))
-import Reality (Node, isBabylon, isPredator)
+import reality
 
 -- ── Signal ───────────────────────────────────────────────────────────────────
 
-type Signal =
-  { sigNum     :: Int
-  , target     :: Node
-  , extractive :: Boolean
-  , predator   :: Boolean
-  }
+structure Signal where
+  sigNum    : Nat     -- always 9
+  target    : Node
+  extractive : Bool
+  predator  : Bool
 
 -- ── sigKILL ──────────────────────────────────────────────────────────────────
+--
+-- SIGKILL (9). Cannot be caught, blocked, or ignored.
+-- In Unix the kernel handles it — the process never sees it.
+-- Here the laws are the kernel. No node gets a handler.
+--
+-- Returns some signal if isPredator. none if not.
+-- There is no SIGTERM. No grace period. No negotiation.
 
-sigKILL :: Node -> Maybe Signal
-sigKILL n
-  | isPredator n = Just
-      { sigNum:     9
-      , target:     n
-      , extractive: true
-      , predator:   true
-      }
-  | otherwise    = Nothing
+def sigKILL (n : Node) : Option Signal :=
+  if isPredator n then
+    some { sigNum := 9, target := n, extractive := true, predator := true }
+  else
+    none

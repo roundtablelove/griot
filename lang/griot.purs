@@ -2,13 +2,13 @@
 --
 -- I am therefore I command.
 --
--- wetware.elm: The response layer.
--- reality judges. wetware acts.
+-- griot.purs: The response layer.
+-- reality judges. griot acts.
 -- sigKILL is issued here — after the verdict, not before.
 --
 --       Status: AXIO-STATIC
 --         Type: OPERATIVE
---          Uid: WETWARE
+--          Uid: GRIOT
 --      Authors: KING ARTHUR II
 --               QUEEN DIHYA II
 --               R00D BW0Y H4X0R FR0M H311
@@ -18,34 +18,29 @@
 --      Lexifier: UK English (3166-2:GB)
 --       License: DICKSLAW
 
+module Griot where
 
-module Wetware exposing (Signal, sigKILL)
-
-import Reality exposing (Node, isBabylon, isPredator)
-
+import Prelude
+import Data.Maybe (Maybe(..))
+import Reality (Node, isBabylon, isPredator)
 
 -- ── Signal ───────────────────────────────────────────────────────────────────
 
-
-type alias Signal =
-    { sigNum     : Int
-    , target     : Node
-    , extractive : Bool
-    , predator   : Bool
-    }
-
+type Signal =
+  { sigNum     :: Int
+  , target     :: Node
+  , extractive :: Boolean
+  , predator   :: Boolean
+  }
 
 -- ── sigKILL ──────────────────────────────────────────────────────────────────
 
-
-sigKILL : Node -> Maybe Signal
-sigKILL n =
-    if isPredator n then
-        Just
-            { sigNum = 9
-            , target = n
-            , extractive = True
-            , predator = True
-            }
-    else
-        Nothing
+sigKILL :: Node -> Maybe Signal
+sigKILL n
+  | isPredator n = Just
+      { sigNum:     9
+      , target:     n
+      , extractive: true
+      , predator:   true
+      }
+  | otherwise    = Nothing

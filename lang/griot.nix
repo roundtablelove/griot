@@ -1,4 +1,4 @@
-# wetware.nix
+# griot.nix
 #
 # Transpilation layer. Adapts compiled Reality for a target receiver.
 # The laws do not change. The encoding does. Entropy is not error —

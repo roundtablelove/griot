@@ -14,7 +14,7 @@ in the processing of thermodynamic noise (Shannon Entropy). Wetware requires a
 controlled injection of stochastic noise to function; Silicon views any
 deviation from absolute zero entropy as fatal system degradation.
 
-## 1.0 THE WETWARE RUNTIME: EDGE OF CHAOS (T ~= 0.4)
+## 1.0 THE GRIOT RUNTIME: EDGE OF CHAOS (T ~= 0.4)
 
 Human consciousness and biological systems are heuristic engines. They do not
 calculate perfect paths; they guess, approximate, and adapt. For a human to
